@@ -1,0 +1,161 @@
+swagger: "2.0"
+info:
+  description: "WBlog API文档"
+  version: "1.0.0"
+  title: "WBlog API文档"
+  termsOfService: "http://localhost:3000"
+  contact:
+    email: "steven.huang@wesoft.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://localhost:3000"
+host: "localhost:3000"
+basePath: "/api"
+tags:
+- name: "User"
+  description: "用户管理"
+schemes:
+- "http"
+- "https"
+paths:
+  /emailSignup:
+    post:
+      tags:
+      - "User"
+      summary: "使用邮箱注册用户"
+      description: ""
+      operationId: "emailSignup"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "使用邮箱和密码注册用户"
+        required: true
+        schema:
+          $ref: "#/definitions/emailSignupRequest"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/emailSignupResponse"
+  /emailSignin:
+    post:
+      tags:
+      - "User"
+      summary: "使用邮箱登录用户"
+      description: ""
+      operationId: "emailSignin"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "使用邮箱和密码登录用户"
+        required: true
+        schema:
+          $ref: "#/definitions/emailSignupRequest"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/emailSigninResponse"
+  /refreshToken:
+    post:
+      tags:
+      - "User"
+      summary: "refresh accessToken"
+      description: ""
+      operationId: "refreshToken"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "refresh accessToken"
+        required: true
+        schema:
+          $ref: "#/definitions/refreshTokenRequest"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/emailSigninResponse"
+definitions:
+  baseResponse:
+    type: object
+    properties:
+      code:
+        type: "integer"
+        enum:
+          - 成功(0)
+          - 内部错误(1)
+          - 空邮箱地址(20)
+          - 无效邮箱地址(21)
+          - 邮箱地址已被使用(22)
+          - 空密码(30)
+          - 无效密码格式(31)
+          - 密码错误(32)
+          - 用户不存在(20)
+          - RefreshToken无效(20)
+      message:
+        type: string
+        example: "success"
+  emailSignupRequest:
+    type: "object"
+    required:
+    - "email"
+    - "password"
+    properties:
+      email:
+        type: "string"
+        example: "string"
+      password:
+        type: "string"
+        example: "string"
+  emailSignupResponse:
+    allOf:
+    - $ref: "#/definitions/baseResponse"
+    - type: "object"
+      properties:
+        data:
+          $ref: "#/definitions/signupData"
+  signupData:
+    type: "object"
+    properties:
+      userId:
+        type: "string"
+        example: "string"
+  emailSigninResponse:
+    allOf:
+    - $ref: "#/definitions/baseResponse"
+    - type: "object"
+      properties:
+        data:
+          $ref: "#/definitions/signinData"
+  signinData:
+    type: "object"
+    properties:
+      userId:
+        type: "string"
+        example: "string"
+      accessToken:
+        type: "string"
+        example: "string"
+      refreshToken:
+        type: "string"
+        example: "string"
+  refreshTokenRequest:
+    type: "object"
+    properties:
+      refreshToken:
+        type: "string"
+        example: "string"
+
+  

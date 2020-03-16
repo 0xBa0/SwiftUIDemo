@@ -1,0 +1,5 @@
+{"userId":"b0b33210-2dd1-11ea-bfe4-a35d4ae90e93","encryptedPassword":"a23c22232e356ccb7142b165f88a45352ca8d5c7","email":"zack.zhang@wesoft.com","phone":null,"_id":"4KG5ukK0QOFEbRsg"}
+{"userId":"f8726030-2971-11ea-b236-9beb969caa8c","encryptedPassword":"7c4a8d09ca3762af61e59520943dc26494f8941b","email":"user@test.com","phone":null,"_id":"ZuidgktESBIejk9H"}
+{"userId":"42733520-2a9d-11ea-a9cd-9d1752a7b989","encryptedPassword":"5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8","email":"test@test.com","phone":null,"_id":"hxEJqq5kHhnxtqjD"}
+{"$$indexCreated":{"fieldName":"userId","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"email","unique":true,"sparse":false}}
