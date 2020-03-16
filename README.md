@@ -1,5 +1,7 @@
 # SwiftUI + Redux
 
+写在前面：SwiffUI到底适合怎样的框架？以往都是MVVM，现在试验性玩一下别的。所以就有了这个Demo。
+
 Redux 是 JavaScript 状态容器，提供可预测化的状态管理。正好SwiftUI的特性和Redux有点搭，看看他们会碰撞出怎样的火花。
 
 ## 启动SwiftUILoginDemo
